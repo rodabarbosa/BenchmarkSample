@@ -7,5 +7,7 @@ Simples projeto para demonstrar a utilização de benchmarkdotnet
 
 
 Referências:
+
 https://github.com/dotnet/BenchmarkDotNet
+
 https://benchmarkdotnet.org/
