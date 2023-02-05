@@ -1,8 +1,5 @@
-using System.Runtime.CompilerServices;
-using System.Text;
-using System;
 using System.Collections.Generic;
-using BenchmarkDotNet.Attributes;
+using System.Text;
 
 namespace BenchmarkTest.Libs
 {
@@ -24,35 +21,35 @@ namespace BenchmarkTest.Libs
 
         public void ConcatenarMaisValorComFor()
         {
-            var valor = string.Empty;
+            string valor = string.Empty;
             for (int i = 0; i < strings.Count; i++)
             {
-                valor = valor + strings[i];
+                valor += strings[i];
             }
         }
 
         public void ConcatenarMaisIgualValorComFor()
         {
-            var valor = string.Empty;
+            string valor = string.Empty;
             for (int i = 0; i < strings.Count; i++)
             {
-                valor = valor + strings[i];
+                valor += strings[i];
             }
         }
 
         public void ConcatenarMaisValorComForeach()
         {
-            var valor = string.Empty;
-            foreach (var item in strings)
+            string valor = string.Empty;
+            foreach (string item in strings)
             {
-                valor = valor + item;
+                valor += item;
             }
         }
 
         public void ConcatenarMaisIgualValorComForeach()
         {
-            var valor = string.Empty;
-            foreach (var item in strings)
+            string valor = string.Empty;
+            foreach (string item in strings)
             {
                 valor += item;
             }
@@ -60,66 +57,20 @@ namespace BenchmarkTest.Libs
 
         public void CancatenarStringBuilder()
         {
-            var sb = new StringBuilder();
-            foreach (var item in strings)
+            StringBuilder sb = new StringBuilder();
+            foreach (string item in strings)
             {
-                sb.Append(item);
+                _ = sb.Append(item);
             }
         }
 
         public void CancatenarStringConcat()
         {
-            var valor = string.Empty;
-            foreach (var item in strings)
+            string valor = string.Empty;
+            foreach (string item in strings)
             {
                 valor = string.Concat(valor, item);
             }
         }
-    }
-
-
-    [RPlotExporter]
-    [MemoryDiagnoser]
-    public class StringyBench
-    {
-        private readonly Stringy _stringy = new Stringy();
-
-        [Benchmark]
-        public void ConcatenarMaisValorComFor()
-        {
-            _stringy.ConcatenarMaisValorComFor();
-        }
-
-        [Benchmark]
-        public void ConcatenarMaisIgualValorComFor()
-        {
-            _stringy.ConcatenarMaisIgualValorComFor();
-        }
-
-        [Benchmark]
-        public void ConcatenarMaisValorComForeach()
-        {
-            _stringy.ConcatenarMaisValorComForeach();
-        }
-
-
-        [Benchmark]
-        public void ConcatenarMaisIgualValorComForeach()
-        {
-            _stringy.ConcatenarMaisIgualValorComForeach();
-        }
-
-        [Benchmark]
-        public void CancatenarStringBuilder()
-        {
-            _stringy.CancatenarStringBuilder();
-        }
-
-        [Benchmark]
-        public void CancatenarStringConcat()
-        {
-            _stringy.CancatenarStringConcat();
-        }
-
     }
 }

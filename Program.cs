@@ -1,14 +1,14 @@
 ﻿using BenchmarkDotNet.Running;
-using BenchmarkTest.Libs;
+using BenchmarkTest.Bench;
 
-namespace BenchmarkTest
+namespace BenchmarkTest;
+
+internal static class Program
 {
-    class Program
+    public static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            var summary = BenchmarkRunner.Run<OrderBench>();
-            //var summary2 = BenchmarkRunner.Run<StringyBench>();
-        }
+        //_ = BenchmarkRunner.Run<OrderBench>();
+        _ = BenchmarkRunner.Run<SearchPersonBench>();
+        //_ = BenchmarkRunner.Run<StringyBench>();
     }
 }

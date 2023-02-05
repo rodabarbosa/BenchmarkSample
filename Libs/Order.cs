@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using BenchmarkDotNet.Attributes;
 
@@ -60,31 +60,5 @@ namespace BenchmarkTest.Libs
             var list2 = list.OrderBy(x => x).ToList();
         }
 
-    }
-
-    [RPlotExporter]
-    [MemoryDiagnoser]
-    public class OrderBench
-    {
-        private readonly Order _order = new Order();
-
-        [Benchmark]
-        public void SortFor() => _order.SortFor();
-
-        [Benchmark]
-        public void SortLinq() => _order.SortLinq();
-
-        [Benchmark]
-        public void SortLambda() => _order.SortLambda();
-        /*
-                [Benchmark]
-                public void SortLambda2() => _order.SortLambda2();
-
-                [Benchmark]
-                public void SortLambda3() => _order.SortLambda3();
-
-                [Benchmark]
-                public void SortLambda4() => _order.SortLambda4();
-        */
     }
 }
